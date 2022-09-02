@@ -18,7 +18,7 @@ usage()
 {
 cat<<EOF
 
-  usage: $0 options
+  usage: $(basename "$0") options
 
   This script will generate a rsa key pair, add the intended host name, username,
   address, and location of the private key to your .ssh/config file.  Upon

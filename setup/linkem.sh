@@ -15,9 +15,6 @@ declare -a target_paths=(
 #"$TOP_DIR/ssh/gen_rsa.sh"
 )
 
-# go to where we're creating the links
-pushd "$LINK_BASE" > /dev/null
-
 # Read the array values with space
 for target in "${target_paths[@]}"; do
 
@@ -25,8 +22,6 @@ for target in "${target_paths[@]}"; do
     link_name=$(basename "${target%.*}")
 
     # make a soft link to the target and replace anything that is there
-    ln -sf "$target" "$link_name"
+    ln -sf "$target" "$LINK_BASE/$link_name"
 done
-
-popd > /dev/null
 
